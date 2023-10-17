@@ -1,6 +1,8 @@
 const express = require('express');
+const routerApi = require('./routes');
+
 const app= express();
-const port = 3000;
+const port = 4200;
 
 app.get('/', (request,response)=>{
     response.send('Hola desde ExpressJS');
@@ -10,13 +12,7 @@ app.get('/nueva-ruta', (request,response)=>{
     response.send('Hola soy un nuevo endpoint');
 });
 
-app.get('/products', (request,response)=>{
-    response.json({
-        name:'Producto 1',
-        price: 1200,
-        description: 'Primer producto'
-    });
-});
+routerApi (app);
 
 app.listen(port, () =>{
     console.log('Escuchando por el puerto ' + port)
